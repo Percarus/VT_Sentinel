@@ -1,0 +1,40 @@
+1. Keeping Your API Key Private
+The .env file should NOT be included if you plan to share your program publicly or upload it somewhere like GitHub.
+
+Your .env file is meant to be local and private, containing your personal API key only.
+
+You can add .env to a .gitignore file to prevent accidental upload to GitHub.
+
+When sharing your program (e.g., the .exe), do NOT include your .env file.
+
+2. What about the .exe file?
+PyInstaller bundles your Python code inside the .exe.
+
+If you hard-code your API key in the source, it will be inside the .exe and could be extracted by someone skilled.
+
+But if your program loads the API key only from .env at runtime, the .exe itself doesn't have your API key inside.
+
+So, sharing the .exe without your .env file means other users can run it by providing their own API key.
+
+3. Best practice
+Distribute your .exe without the .env file.
+
+Make the program prompt users to enter their own API key on first run and save it locally in .env on their machine.
+
+Never share your .env file publicly.
+
+Use .gitignore for .env when using GitHub.
+
+4. About antivirus vendors like Norton
+If you submit your program for scanning without your API key, they only see the executable and code — no API key.
+
+If you send the .env with your API key, they will see it. So don’t do that.
+
+Bottom line: Keep your .env private, do not include it in shares or repos, and make the app request the API key on first use.
+
+If you want, I can help adjust the code so it always prompts for the API key if .env is missing! Would you like that?
+
+==============================================================================
+vt_sentinel.exe should go in this folder:
+
+VT_Sentinel > dist >

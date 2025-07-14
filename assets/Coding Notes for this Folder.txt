@@ -1,0 +1,130 @@
+✅ 1. Alert Sound: alert.wav
+Option A: Use a built-in Windows sound
+If you're on Windows, your system already has alert sounds. You can use:
+
+python
+Copy
+Edit
+winsound.MessageBeep(winsound.MB_ICONHAND)
+Already included in Part 7 — this requires no extra file.
+
+Option B: Custom Sound File
+If you want a unique sound (like a short alarm), here's what to do:
+
+Steps:
+Download a free alert sound:
+
+From: https://freesound.org/
+
+Suggested search: "alarm beep", "warning alert", or "security breach"
+
+Pick a .wav file under 5 seconds for best results.
+
+Save it as:
+
+bash
+Copy
+Edit
+/assets/alert.wav
+In your Python code (Part 7), replace winsound.MessageBeep() with:
+
+python
+Copy
+Edit
+import os
+import winsound
+
+def play_alert_sound():
+    sound_path = os.path.join("assets", "alert.wav")
+    if os.path.exists(sound_path):
+        winsound.PlaySound(sound_path, winsound.SND_FILENAME | winsound.SND_ASYNC)
+✅ 2. App Icon: icon.ico
+To make your app look polished, add an icon.
+
+Steps:
+Visit https://www.iconarchive.com/ or https://icons8.com/icons
+
+Download any .ico file
+
+Save as:
+
+bash
+Copy
+Edit
+/assets/icon.ico
+Use this in your tkinter app:
+Add this inside your VTSentinelApp.__init__():
+
+python
+Copy
+Edit
+self.iconbitmap('assets/icon.ico')
+Optional: Also use the icon when compiling to .exe (with pyinstaller) using:
+
+bash
+Copy
+Edit
+pyinstaller --onefile --windowed --icon=assets/icon.ico vt_sentinel.py
+
+================================================================================
+
+If you don’t choose an icon.ico file, here’s what happens:
+
+🖼️ 1. When Running the Python Script
+No error will occur.
+
+The app window will just show the default Python icon (a blue-and-yellow snake).
+
+This is fine if you don’t care about branding or visuals.
+
+📦 2. When You Compile It into an EXE (e.g., with PyInstaller)
+If you don’t supply an --icon option:
+
+The .exe will use PyInstaller’s default icon, which is a generic console window icon.
+
+On Windows, this doesn’t look very polished or recognizable.
+
+If you do specify an icon path and it’s missing or incorrect, PyInstaller will fail with an error like:
+
+vbnet
+Copy
+Edit
+FileNotFoundError: No such file or directory: 'assets/icon.ico'
+✅ Summary:
+Situation	Outcome if icon.ico is missing
+Running as .py	Uses default Python window icon
+Compiling with no --icon	Uses default PyInstaller icon
+Compiling with bad --icon path	Fails with error
+
+✅ Safe Approach:
+If you don't want a custom icon, just:
+
+Skip setting .iconbitmap() in your Python script.
+
+Skip the --icon flag in pyinstaller.
+
+It’s purely optional and only affects the appearance, not the function.
+
+Would you like me to help you find a free .ico file or just proceed without it?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,2 @@
+alert.wav     (example alert sound file)
+icon.ico      (app icon file if you want)

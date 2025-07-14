@@ -1,0 +1,25 @@
+Note:
+****
+
+virustotal-python is the official VirusTotal API Python wrapper.
+
+These packages can be installed by running:
+
+bash
+pip install -r requirements.txt
+
+=====
+Summary commands:
+****************
+cd path\to\VT_Sentinel
+pip install -r requirements.txt
+pip install pyinstaller
+pyinstaller --onefile --windowed vt_sentinel.py
+
+
+-	-	-	-	-
+cd %USERPROFILE%\Desktop\VT_Sentinel
+python3 vt_sentinel.py
+
+-	-	-	-	-
+API obtained from:>> https://www.virustotal.com/
